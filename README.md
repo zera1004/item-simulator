@@ -82,6 +82,12 @@ auth.middleware.js: 사용자 토큰에 uid값이 있는값인지, 변조되지 
 
 <br>
 
+**/untils/prisma**
+
+index.js: 실행할때마다 새로운 인스턴스를 생성하지 않고 하나의 인스턴스를 사용하게 해줌
+
+<br>
+
 <br>
 
 ## 핵심기능
