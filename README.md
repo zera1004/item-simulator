@@ -202,6 +202,8 @@ HTTP 메서드: POST
 
 \*헤더의 Authorization에 로그인시 받은 토큰 필요, 토큰의 uid가 'admin0'이어야함(회원가입시 uid가 admin0 이어야함)
 
+uid 'admin0'은 현재 데이터베이스에 없어서 생성하셔야 합니다.
+
 ```json
 {
   "itemName": "adminchestArmor225333",
@@ -222,6 +224,8 @@ HTTP 메서드: PUT
 주소: /api/item/modify
 
 \*헤더의 Authorization에 로그인시 받은 토큰 필요, 토큰의 uid가 'admin0'이어야함(회원가입시 uid가 admin0 이어야함)
+
+uid 'admin0'은 현재 데이터베이스에 없어서 생성하셔야 합니다.
 
 ```json
 {
