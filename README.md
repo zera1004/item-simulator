@@ -92,7 +92,7 @@ index.js: 실행할때마다 새로운 인스턴스를 생성하지 않고 하�
 
 ## 핵심기능
 
-회원가입
+### 회원가입
 
 HTTP 메서드: POST
 
@@ -109,7 +109,7 @@ HTTP 메서드: POST
 
 <br>
 
-로그인
+### 로그인
 
 HTTP 메서드: POST
 
@@ -124,7 +124,7 @@ HTTP 메서드: POST
 
 <br>
 
-캐릭터 생성
+### 캐릭터 생성
 
 HTTP 메서드:POST
 
@@ -140,7 +140,7 @@ HTTP 메서드:POST
 
 <br>
 
-내 캐릭터 조회
+### 내 캐릭터 조회
 
 HTTP 메서드: GET
 
@@ -150,7 +150,7 @@ HTTP 메서드: GET
 
 <br>
 
-캐릭터 선택
+### 캐릭터 선택
 
 HTTP 메서드: POST
 
@@ -168,7 +168,7 @@ HTTP 메서드: POST
 
 <br>
 
-캐릭터 이름으로 조회
+### 캐릭터 이름으로 조회
 
 HTTP 메서드: GET
 
@@ -178,7 +178,7 @@ HTTP 메서드: GET
 
 <br>
 
-캐릭터 삭제
+### 캐릭터 삭제
 
 HTTP 메서드: DELETE
 
@@ -194,7 +194,7 @@ HTTP 메서드: DELETE
 
 <br>
 
-아이템 생성
+### 아이템 생성
 
 HTTP 메서드: POST
 
@@ -215,7 +215,7 @@ itemType에는 weapon,helmet,chestArmor,legArmor중 하나여야만 작동
 
 <br>
 
-아이템 수정
+### 아이템 수정
 
 HTTP 메서드: PUT
 
@@ -232,7 +232,7 @@ HTTP 메서드: PUT
 
 <br>
 
-아이템 목록 조회
+### 아이템 목록 조회
 
 HTTP 메서드: GET
 
@@ -242,7 +242,7 @@ HTTP 메서드: GET
 
 <br>
 
-아이템 상세 조회
+### 아이템 상세 조회
 
 HTTP 메서드: GET
 
