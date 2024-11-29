@@ -7,7 +7,7 @@ import { checkInfo } from '../middlewares/item.middleware.js';
 
 const router = express.Router();
 
-// 아이템 생성(id가 admin0일때만 가능)
+// 아이템 생성(토큰에 들어있는 uid가 admin0일때만 가능) // admin0 아이디는 생성하시면 됩니다!, 현재 없음!
 router.post('/create', authMiddleWare, checkCreate, async (req, res, next) => {
   try {
     const { itemName, itemType, itemAbility, itemPrice } = req.body;
@@ -22,7 +22,7 @@ router.post('/create', authMiddleWare, checkCreate, async (req, res, next) => {
   }
 });
 
-// 아이템 수정(id가 admin0일때만 가능)
+// 아이템 수정(토큰에 들어있는 uid가 admin0일때만 가능) // admin0 아이디는 생성하시면 됩니다!, 현재 없음!
 router.put('/modify', authMiddleWare, checkModify, async (req, res, next) => {
   try {
     const { itemName, itemAbility } = req.body;
