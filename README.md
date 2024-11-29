@@ -246,7 +246,7 @@ HTTP 메서드: GET
 
 HTTP 메서드: GET
 
-주소: /api/item/info/adminchestArmor22533
+주소: /api/item/info/:itemName
 
 \*헤더의 Authorization에 로그인시 받은 토큰 필요
 
