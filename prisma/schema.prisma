@@ -1,0 +1,129 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// 계정 테이블
+model Users {
+  userId Int @id @default(autoincrement()) @map("userId")
+  userName String @map("userName")
+  uid String @unique @map("uid")
+  pwd String @map("pwd")
+
+  characters Characters[]
+
+  @@map("Users")
+}
+
+// 캐릭터 테이블
+model Characters {
+  characterId Int @id @default(autoincrement()) @map("characterId")
+  userId Int @map("userId")
+  characterName String @unique @map("characterName")
+  money Int @map("money")
+  attackAbility Int @map("attackAbility")
+  defenseAbility Int @map("defenseAbility")
+  healthAbility Int @map("healthAbility")
+
+  user Users @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  characterWeapon CharacterWeapon?
+  characterHelmet CharacterHelmet?
+  characterChestArmor CharacterChestArmor?
+  characterLegArmor CharacterLegArmor?
+  inventory Inventory[]
+
+  @@map ("Characters")
+}
+
+// 캐릭터-착용-무기 테이블
+model CharacterWeapon {
+  characterWeaponId Int @id @default(autoincrement()) @map("characterWeaponId")
+  characterId Int @unique @map("characterId")
+  itemName String @map("itemName")
+  itemType String @map("itemType")
+  itemAbility Int @map("itemAbility")
+  itemPrice Int @map("itemPrice")
+
+  character Characters @relation(fields: [characterId], references: [characterId], onDelete: Cascade)
+
+  @@map ("CharacterWeapon")
+}
+
+// 캐릭터-착용-헬멧 테이블
+model CharacterHelmet {
+  characterHelmetId Int @id @default(autoincrement()) @map("characterHelmetId")
+  characterId Int @unique @map("characterId")
+  itemName String @map("itemName")
+  itemType String @map("itemType")
+  itemAbility Int @map("itemAbility")
+  itemPrice Int @map("itemPrice")
+
+  character Characters @relation(fields: [characterId], references: [characterId], onDelete: Cascade)
+
+  @@map ("CharacterHelmet")
+}
+
+// 캐릭터-착용-상의방어구 테이블
+model CharacterChestArmor {
+  characterChestArmorId Int @id @default(autoincrement()) @map("characterChestArmorId")
+  characterId Int @unique @map("characterId")
+  itemName String @map("itemName")
+  itemType String @map("itemType")
+  itemAbility Int @map("itemAbility")
+  itemPrice Int @map("itemPrice")
+
+  character Characters @relation(fields: [characterId], references: [characterId], onDelete: Cascade)
+
+  @@map ("CharacterChestArmor")
+}
+
+// 캐릭터-착용-하의방어구 테이블
+model CharacterLegArmor {
+  characterLegArmorId Int @id @default(autoincrement()) @map("characterLegArmorId")
+  characterId Int @unique @map("characterId")
+  itemName String @map("itemName")
+  itemType String @map("itemType")
+  itemAbility Int @map("itemAbility")
+  itemPrice Int @map("itemPrice")
+
+  character Characters @relation(fields: [characterId], references: [characterId], onDelete: Cascade)
+
+  @@map ("CharacterLegArmor")
+}
+
+
+// 캐릭터-인벤토리 테이블
+model Inventory {
+  inventoryId Int @id @default(autoincrement()) @map("inventoryId")
+  characterId Int @map("characterId")
+  itemName String @map("itemName")
+  itemType String @map("itemType")
+  itemAbility Int @map("itemAbility")
+  itemPrice Int @map("itemPrice")
+
+  character Characters @relation(fields: [characterId], references: [characterId], onDelete: Cascade)
+
+  @@map ("InventoryWeapon")
+}
+
+
+// 아이템 테이블
+model Items{
+  itemId Int @id @default(autoincrement()) @map("itemId")
+  itemName String @unique @map("itemName")
+  itemType String @map("itemType")
+  itemAbility Int @map("itemAbility")
+  itemPrice Int @map("itemPrice")
+
+  @@map("Items")
+}
